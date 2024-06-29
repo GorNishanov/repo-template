@@ -1,0 +1,8 @@
+// -*- C++ -*-
+// Copyright (c) 2024 Gor Nishanov
+// Licensed under MIT license. See LICENSE.txt for details.
+
+#ifndef _STD_EXPERIMENTAL_CONQUEUE
+#define _STD_EXPERIMENTAL_CONQUEUE
+
+#endif // _STD_EXPERIMENTAL_CONQUEUE
