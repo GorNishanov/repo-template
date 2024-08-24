@@ -27,7 +27,7 @@ target_include_directories(conqueue PUBLIC
 target_link_libraries(conqueue PUBLIC stdexec)
 
 # Use C++20 standard
-target_compile_features(conqueue INTERFACE cxx_std_20)
+target_compile_features(conqueue INTERFACE cxx_std_23)
 
 enable_testing()
 
