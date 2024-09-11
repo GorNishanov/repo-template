@@ -20,8 +20,17 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_compile_options(/W4 /WX)
 endif()
 
+# Platform-specific source files
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    set(PLATFORM_SRC src/linux/platform.cpp)
+elseif (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    set(PLATFORM_SRC src/mac/platform.cpp)
+elseif (CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    set(PLATFORM_SRC src/windows/platform.cpp)
+endif()
+
 # Define the main library
-add_library(conqueue STATIC src/conqueue.cpp)
+add_library(conqueue STATIC src/conqueue.cpp ${PLATFORM_SRC})
 
 # Declare the public include directories
 include(GNUInstallDirs)
