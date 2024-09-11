@@ -11,8 +11,14 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Fetch required dependencies
 add_subdirectory(dependencies)
 
-# Treat warnings as errors
-add_compile_options(-Werror)
+# Detect the compiler and set compiler-specific options
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_compile_options(-Wall -Wextra -Werror)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_compile_options(-Wall -Wextra -Werror)
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    add_compile_options(/W4 /WX)
+endif()
 
 # Define the main library
 add_library(conqueue STATIC src/conqueue.cpp)

@@ -1,0 +1,48 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"${workspaceFolder}/build",
+				"--target",
+				"all"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Generated task to build the project using Ninja"
+		},
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "ctest",
+            "args": [
+                "-j24",
+                "-C",
+                "Debug",
+                "-T",
+                "test",
+                "--output-on-failure"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "build"
+        }
+	]
+}
